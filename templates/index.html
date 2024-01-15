@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RVTK Suite Remake By M.N</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 150px;
+            background-color: #f2f2f2;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .logo-text {
+            font-weight: bold;
+            color: black;
+        }
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: black;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #000;
+        }
+        .menu a:hover {
+            background-color: #000;
+            color: white;
+        }
+        .content {
+            text-align: center;
+            padding-top: 150px;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .form-container {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input[type="text"] {
+            width: 100px; /* Устанавливаем ширину поля ввода в 100 пикселей */
+            border-radius: 20px;
+            padding: 10px;
+            flex-grow: 1;
+            max-width: 9%; /* Добавляем максимальную ширину поля ввода */
+        }
+        input[type="submit"] {
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #17B978;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function formatPhoneNumber() {
+            var phoneNumber = document.getElementById('phone').value;
+            if (!phoneNumber.startsWith('+7')) {
+                phoneNumber = '+7' + phoneNumber;
+                document.getElementById('phone').value = phoneNumber;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://admin.bkogov.kz/sites_files/rvtk.bkogov.kz/logo/1671770959_1.png" alt="Logo">
+            <div class="logo-text">RVTK β</div>
+        </div>
+        <div class="menu">
+            <a href="#">Главная</a>
+            <a href="#">О колледже</a>
+            <a href="#">Контакты</a>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Хочешь учиться у нас?</h2>
+        <p>Введи свой номер телефона ниже в поле и наша Администрация с тобой свяжется</p>
+        <form action="/save_number" method="post" class="form-container">
+            <input type="text" id="phone" name="phone" placeholder="+7" maxlength="12" pattern="\+7[0-9]{10}" title="Введите номер в формате +7XXXXXXXXXX" oninput="formatPhoneNumber()" required>
+            <input type="submit" value="OK">
+        </form>
+    </div>
+</body>
+</html>
