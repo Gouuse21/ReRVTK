@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RVTK Suite Remake By M.N</title>
     <style>
         body {
@@ -65,20 +68,169 @@
             justify-content: center;
         }
         input[type="text"] {
-            width: 100px; /* Устанавливаем ширину поля ввода в 100 пикселей */
+            width: 100px;
             border-radius: 20px;
             padding: 10px;
+            margin-top: 30px;
             flex-grow: 1;
-            max-width: 9%; /* Добавляем максимальную ширину поля ввода */
+            max-width: 9%;
         }
         input[type="submit"] {
             border: none;
             border-radius: 20px;
             padding: 10px 20px;
             margin-left: 10px;
+            margin-top: 30px;
             background-color: #17B978;
             color: white;
             cursor: pointer;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 5px 10px 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .content h2 {
+            font-size: 36px;
+            font-weight: bold;
+            font-family: RAYdis, Arial, sans-serif;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            margin-top: 70px;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 5px 10px 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, z-index 0.3s ease;
+            position: relative;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+            z-index: 1;
+        }
+        .gallery-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .gallery-subtitle {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-top: 80px;
+        }
+        .square-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .square, .square-filled {
+            width: 500px;
+            height: 300px;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .square {
+            border: 2px solid #17B978;
+            color: black;
+        }
+        .square-filled {
+            background-color: #17B978;
+            margin-left: 20px;
+            color: white;
+        }
+        .square-text, .square-filled-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: bold;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: top;
+            text-align: left;
+            font-size: 45px;
+        }
+        .square1-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .square1, .square1-filled {
+            width: 500px;
+            height: 300px;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .square1 {
+            border: 2px solid #17B978;
+            background-color: #17B978;
+            color: white;
+        }
+        .square1-filled {
+            border: 2px solid #17B978;
+            margin-left: 20px;
+            color: black;
+        }
+        .square1-text, .square1-filled-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: bold;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: top;
+            text-align: left;
+            font-size: 45px;
+        }
+        .square, .square-filled, .square1, .square1-filled {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .square:hover, .square-filled:hover, .square1:hover, .square1-filled:hover {
+            transform: scale(0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .info-box {
+            width: 1000px;
+            border: 2px solid #17B978;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .info-box p {
+            margin: 0;
+        }
+        .info-box a {
+            color: #17B978;
         }
     </style>
     <script>
@@ -110,6 +262,55 @@
             <input type="text" id="phone" name="phone" placeholder="+7" maxlength="12" pattern="\+7[0-9]{10}" title="Введите номер в формате +7XXXXXXXXXX" oninput="formatPhoneNumber()" required>
             <input type="submit" value="OK">
         </form>
+    </div>
+    <div class="gallery">
+        <a href="https://admin.bkogov.kz/sites_files/rvtk.bkogov.kz/gallery/1671813198_2%20(2).jpg" target="_blank">
+            <img src="https://admin.bkogov.kz/sites_files/rvtk.bkogov.kz/gallery/1671813198_2%20(2).jpg" alt="Image 1">
+        </a>
+        <a href="https://admin.bkogov.kz/sites_files/rvtk.bkogov.kz/gallery/1671813198_2%20(3).jpg" target="_blank">
+            <img src="https://admin.bkogov.kz/sites_files/rvtk.bkogov.kz/gallery/1671813198_2%20(3).jpg" alt="Image 2">
+        </a>
+        <a href="https://admin.bkogov.kz/sites_files/rvtk.bkogov.kz/gallery/1671813198_2%20(3).jpg" target="_blank">
+            <img src="https://admin.bkogov.kz/sites_files/rvtk.bkogov.kz/gallery/1671813197_1%20(2).jpg" alt="Image 3">
+        </a>
+        <a href="https://admin.bkogov.kz/sites_files/rvtk.bkogov.kz/gallery/1671813197_1%20(3).jpg" target="_blank">
+            <img src="https://admin.bkogov.kz/sites_files/rvtk.bkogov.kz/gallery/1671813197_1%20(3).jpg" alt="Image 4">
+        </a>
+    </div>
+    <div class="gallery-title">Наша галерея</div>
+    <h2 class="gallery-subtitle">О колледже</h2>
+    <div class="square-container">
+        <div class="square">
+            <p class="square-text">Акцент на практике и реальных проектах.</p>
+        </div>
+        <div class="square-filled">
+            <p class="square-filled-text">Обучение современным технологиям.</p>
+        </div>
+    </div>
+    <div class="square1-container">
+        <div class="square1">
+            <p class="square1-text">Возможности успешной карьеры в IT-сфере.</p>
+        </div>
+        <div class="square1-filled">
+            <p class="square1-filled-text">Гибкий выбор форм обучения.</p>
+        </div>
+    </div>
+    <h2 class="gallery-subtitle">Контакты</h2>
+    <div class="info-box">
+        <p>Полное наименование учебного заведения:</p>
+        <p>НУО «Республиканский высший технический колледж»</p>
+        <p>Адрес: 090000, Западно-Казахстанcкая область, город Уральск, улица Қайрата Жумағалиева, дом 20/1</p>
+        <p>Электронная почта: vtsh_08@mail.ru</p>
+        <p>Официальный сайт: <a href="http://www.rvtk.edu.kz">www.rvtk.edu.kz</a></p>
+        <p>Контактный телефон: 8 (7112) 25-50-52, 8 (7112) 51-35-70</p>
+        <p>Факс: 8 (7112) 50-34-20</p>
+        <p>Оқу орнының толық атауы:</p>
+        <p>МЕББМ «Республикалық жоғары техникалық колледж»</p>
+        <p>Мекен-жайы: 090000, Батыс Қазақстан облысы, Орал Қаласы, Қайрат Жумағалиев көшесі, үй 20/1</p>
+        <p>Электрондық почта: vtsh_08@mail.ru</p>
+        <p>Ресми сайты: <a href="http://www.rvtk.edu.kz">www.rvtk.edu.kz</a></p>
+        <p>Байланыс телефоны: 8 (7112) 25-50-52, 8 (7112) 51-35-70</p>
+        <p>Факс: 8 (7112) 50-34-20</p>
     </div>
 </body>
 </html>
